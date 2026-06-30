@@ -14,7 +14,10 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Build
-        run: cd relax && msbuild relax.sln /p:Configuration=Release /p:Platform=x64
+        shell: cmd
+        run: |
+          cd relax
+          msbuild relax.sln /p:Configuration=Release /p:Platform=x64
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
